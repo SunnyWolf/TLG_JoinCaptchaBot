@@ -1656,7 +1656,7 @@ async def text_msg_rx(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         sent_msg_id)
                 Global.new_users[chat_id][user_id]["msg_to_rm"].append(msg_id)
             # Check if the message was just a 4 numbers msg
-            elif is_int(msg_text):
+            else:
                 tlg_autodelete_msg(update_msg)
                 sent_msg_id = await tlg_send_autodelete_msg(
                         bot, chat_id, TEXT[lang]["CAPTCHA_INCORRECT_1"],
